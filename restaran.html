@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Karimovlar Restarani</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+      }
+      header {
+        background: #7a0000;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+      header input {
+        margin-top: 10px;
+        padding: 6px;
+        width: 140px;
+      }
+      section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      h2 {
+        color: #7a0000;
+      }
+
+      .menu {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        grid-auto-rows: 1fr;
+      }
+
+      .item {
+        background: #fff;
+        border-radius: 12px;
+        padding: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .img-box {
+        height: 180px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+      .img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .item h3 {
+        margin: 6px 0;
+      }
+      .item p {
+        margin: 4px 0;
+      }
+      .price {
+        color: green;
+        font-weight: bold;
+      }
+
+      .item button {
+        margin-top: auto;
+        background: #7a0000;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .item button:hover {
+        background: #9a0000;
+      }
+
+      .order-box {
+        background: #fff;
+        padding: 15px;
+        border-radius: 10px;
+      }
+      footer {
+        background: #222;
+        color: #fff;
+        padding: 20px;
+        margin-top: 40px;
+      }
+      textarea {
+        width: 100%;
+        padding: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>🍽 Karimovlar Restarani</h1>
+      <p>Milliy va Zamonaviy taomlar</p>
+      Stol raqami:<br />
+      <input type="number" id="tableNumber" placeholder="Masalan 4" />
+    </header>
+
+    <!-- MILLIIY -->
+    <section>
+      <h2>🥘 Milliy taomlar</h2>
+      <div class="menu">
+        <div class="item">
+          <div class="img-box">
+            <img
+              src="https://avatars.mds.yandex.net/i?id=e4bfbb75584f081efc8b3614c444c9a479955eb8-9845553-images-thumbs&n=13"
+            />
+          </div>
+          <h3>Osh</h3>
+          <p>Guruch, go‘sht, sabzi</p>
+          <p class="price">25 000 so‘m</p>
+          <button onclick="addOrder('Osh',25000)">Buyurtma</button>
+        </div>
+
+        <div class="item">
+          <div class="img-box">
+            <img
+              src="https://st2.stpulscen.ru/images/product/417/811/635_original.jpg"
+            />
+          </div>
+          <h3>Manti</h3>
+          <p>Xamir, mol go‘shti</p>
+          <p class="price">30 000 so‘m</p>
+          <button onclick="addOrder('Manti',30000)">Buyurtma</button>
+        </div>
+
+        <div class="item">
+          <div class="img-box">
+            <img
+              src="https://avatars.mds.yandex.net/i?id=8c794ba87009c24fd595386122bc891f31d11d05-12804321-images-thumbs&n=13"
+            />
+          </div>
+          <h3>Lag‘mon</h3>
+          <p>Qo‘l cho‘zma, sabzavot</p>
+          <p class="price">28 000 so‘m</p>
+          <button onclick="addOrder('Lagmon',28000)">Buyurtma</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAST FOOD -->
+    <section>
+      <h2>🍔 Fast Food</h2>
+      <div class="menu">
+        <div class="item">
+          <div class="img-box">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/0/0b/RedDot_Burger.jpg"
+            />
+          </div>
+          <h3>Burger</h3>
+          <p>Kotlet, pishloq</p>
+          <p class="price">28 000 so‘m</p>
+          <button onclick="addOrder('Burger',28000)">Buyurtma</button>
+        </div>
+
+        <div class="item">
+          <div class="img-box">
+            <img
+              src="https://imageproxy.wolt.com/assets/67758e6e38fe440fb19bab0a"
+            />
+          </div>
+          <h3>Lavash</h3>
+          <p>Tovuq go‘shti</p>
+          <p class="price">26 000 so‘m</p>
+          <button onclick="addOrder('Lavash',26000)">Buyurtma</button>
+        </div>
+
+        <div class="item">
+          <div class="img-box">
+            <img
+              src="https://avatars.mds.yandex.net/i?id=78c1ae39a2da7e5dc8835e43f7a3aa580435dd5f-9858395-images-thumbs&n=13"
+            />
+          </div>
+          <h3>Shaurma</h3>
+          <p>Go‘sht, sabzavot</p>
+          <p class="price">24 000 so‘m</p>
+          <button onclick="addOrder('Shaurma',24000)">Buyurtma</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SALATLAR -->
+    <section>
+      <h2>🥗 Salatlar</h2>
+      <div class="menu">
+        <div class="item">
+          <div class="img-box">
+            <img
+              src="https://avatars.mds.yandex.net/i?id=0240069f8fdc60800aa94812cc846c232d947128-5866271-images-thumbs&n=13"
+            />
+          </div>
+          <h3>Olivye</h3>
+          <p>Kartoshka, tuxum</p>
+          <p class="price">15 000 so‘m</p>
+          <button onclick="addOrder('Olivye',15000)">Buyurtma</button>
+        </div>
+
+        <div class="item">
+          <div class="img-box">
+            <img src="https://i.ytimg.com/vi/R9733-bAVZE/maxresdefault.jpg" />
+          </div>
+          <h3>Achchiq-chuchuk</h3>
+          <p>Pomidor, bodring</p>
+          <p class="price">12 000 so‘m</p>
+          <button onclick="addOrder('Achchiq-chuchuk',12000)">Buyurtma</button>
+        </div>
+
+        <div class="item">
+          <div class="img-box">
+            <img
+              src="https://avatars.mds.yandex.net/i?id=c0b8e47ae753b5c2bd7ddd010efec0222ccd6196-8168927-images-thumbs&n=13"
+            />
+          </div>
+          <h3>Fransuz salati</h3>
+          <p>Tuxum, kartoshka</p>
+          <p class="price">14 000 so‘m</p>
+          <button onclick="addOrder('Fransuz salati',14000)">Buyurtma</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ICHIMLIKLAR -->
+    <section>
+      <h2>🥤 Ichimliklar</h2>
+      <div class="menu">
+        <div class="item">
+          <div class="img-box">
+            <img
+              src="https://xabar.uz/static/crop/1/9/920__95_1914104546.jpg"
+            />
+          </div>
+          <h3>Choy</h3>
+          <p>Qora choy</p>
+          <p class="price">3 000 so‘m</p>
+          <button onclick="addOrder('Choy',3000)">Buyurtma</button>
+        </div>
+
+        <div class="item">
+          <div class="img-box">
+            <img
+              src="https://main-cdn.sbermegamarket.ru/big1/hlr-system/-65/998/308/910/262/320/100061384369b0.jpg"
+            />
+          </div>
+          <h3>Coca-Cola</h3>
+          <p>0.5L</p>
+          <p class="price">8 000 so‘m</p>
+          <button onclick="addOrder('Coca-Cola',8000)">Buyurtma</button>
+        </div>
+
+        <div class="item">
+          <div class="img-box">
+            <img
+              src="https://avatars.mds.yandex.net/i?id=e2487d5220d95dd401b2b0b1de62cfbe88b6e5d8-4768962-images-thumbs&n=13"
+            />
+          </div>
+          <h3>Limonli choy</h3>
+          <p>Issiq ichimlik</p>
+          <p class="price">4 000 so‘m</p>
+          <button onclick="addOrder('Limonli choy',4000)">Buyurtma</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUYURTMALAR -->
+    <section>
+      <h2>🧾 Buyurtmalar</h2>
+      <div class="order-box" id="orders"></div>
+      <h3>Umumiy: <span id="total">0</span> so‘m</h3>
+    </section>
+
+    <footer>
+      <p>📞 +998 88 210 26 01</p>
+      <p>🌐 www.karimovlarrestaran.uz</p>
+      <h3>⭐ Otziv</h3>
+      <textarea placeholder="Fikringizni yozing..."></textarea><br /><br />
+      <button>Yuborish</button>
+    </footer>
+
+    <script>
+      let total = 0;
+      function addOrder(name, price) {
+        const table = document.getElementById("tableNumber").value || "?";
+        document.getElementById(
+          "orders"
+        ).innerHTML += `<p>Stol ${table}: ${name} — ${price} so‘m</p>`;
+        total += price;
+        document.getElementById("total").innerText = total;
+      }
+    </script>
+  </body>
+</html>
